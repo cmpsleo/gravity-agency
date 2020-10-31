@@ -170,7 +170,7 @@ export const Social = {
     }
   `,
 
-  Icon: styled.img`
+  Icon: styled(ReactSVG)`
     opacity: 0.4;
     transition: 0.15s;
 

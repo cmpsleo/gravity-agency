@@ -53,5 +53,5 @@ export const Action = {
     }
   `,
 
-  Icon: styled.img``,
+  Icon: styled(ReactSVG)``,
 }

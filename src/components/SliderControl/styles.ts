@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { ReactSVG } from 'react-svg'
 
 import { Props } from '.'
 
@@ -30,4 +31,4 @@ export const Container = styled.button<Props>`
   }
 `
 
-export const Icon = styled.img``
+export const Icon = styled(ReactSVG)``

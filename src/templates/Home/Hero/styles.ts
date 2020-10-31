@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import media from 'styled-media-query'
 import { rem, rgba } from 'polished'
 import { helpers } from 'styles'
+import Image from 'next/image'
 
 export const Container = styled.section`
   ${helpers.container.mobile}
@@ -53,15 +54,17 @@ export const Pictures = styled.figure`
   `}
 `
 
-export const Picture = styled.img.attrs(() => ({
+export const Picture = styled(Image).attrs(() => ({
   src: '/images/hero/1.jpg',
+  unsized: true,
 }))`
   width: 100%;
   height: calc(100vh - 144px);
 `
 
-export const Video = styled.img.attrs(() => ({
+export const Video = styled(Image).attrs(() => ({
   src: '/images/hero/2.jpg',
+  unsized: true,
 }))`
   position: absolute;
   bottom: 10vh;

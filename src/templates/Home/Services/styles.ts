@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import media from 'styled-media-query'
 import { rgba, rem } from 'polished'
+import Image from 'next/image'
 
 import { helpers } from 'styles'
 
@@ -86,7 +87,7 @@ export const Slides = styled.div`
   }
 `
 
-export const Item = styled.img`
+export const Item = styled(Image).attrs(() => ({ unsized: true }))`
   width: 100%;
 
   cursor: pointer;

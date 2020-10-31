@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import media from 'styled-media-query'
 import { rgba, rem } from 'polished'
+import Image from 'next/image'
 
 import { helpers } from 'styles'
 
@@ -61,7 +62,7 @@ export const Client = {
     }
   `,
 
-  Logo: styled.img`
+  Logo: styled(Image).attrs(() => ({ unsized: true }))`
     max-width: 70px;
     max-height: 30px;
 
