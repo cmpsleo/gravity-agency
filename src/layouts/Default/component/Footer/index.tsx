@@ -1,8 +1,16 @@
+import Link from 'next/link'
+
+import { FooterProps } from '../../types'
+
 import * as S from './styles'
 
 import * as data from './data'
 
-export default function Footer() {
+export default function Footer({
+  menu,
+  newsletter,
+  externalMenu,
+}: FooterProps) {
   return (
     <S.Container>
       <S.Content>
@@ -10,25 +18,26 @@ export default function Footer() {
           <S.Logo />
 
           <S.Menu.Wrapper>
-            <S.Menu.Item>Travel</S.Menu.Item>
-            <S.Menu.Item>Explore</S.Menu.Item>
-            <S.Menu.Item>Works</S.Menu.Item>
-            <S.Menu.Item>About Us</S.Menu.Item>
-            <S.Menu.Item>Contacts</S.Menu.Item>
+            {menu.map((item, index) => (
+              <Link key={index} href={item.link}>
+                <S.Menu.Item>{item.title}</S.Menu.Item>
+              </Link>
+            ))}
           </S.Menu.Wrapper>
 
           <S.Newsletter.Form>
-            <S.Newsletter.Field />
-            <S.Newsletter.Action>Send</S.Newsletter.Action>
+            <S.Newsletter.Field placeholder={newsletter?.placeholder} />
+            <S.Newsletter.Action>{newsletter?.button}</S.Newsletter.Action>
           </S.Newsletter.Form>
         </S.Upper>
 
         <S.Below>
           <S.Links.Wrapper>
-            <S.Links.Item>Terms</S.Links.Item>
-            <S.Links.Item>Promo</S.Links.Item>
-            <S.Links.Item>Download</S.Links.Item>
-            <S.Links.Item>News</S.Links.Item>
+            {externalMenu.map((item, index) => (
+              <Link key={index} href={item.link}>
+                <S.Links.Item>{item.title}</S.Links.Item>
+              </Link>
+            ))}
           </S.Links.Wrapper>
 
           <S.Socials>

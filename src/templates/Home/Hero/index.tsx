@@ -1,21 +1,19 @@
 import { Button } from 'components'
 
+import { HeroProps } from '../types'
+
 import * as S from './styles'
 
-export default function Hero() {
+export default function Hero({ title, description, button }: HeroProps) {
   return (
     <S.Container>
       <S.Content.Wrapper>
         <S.Content.Box>
-          <S.Title>Work around you and your team</S.Title>
+          <S.Title>{title}</S.Title>
 
-          <S.Description>
-            From ads that dance or sing to MTV-like commercials, online
-            advertisers are now using a new type of technology “rich media” to
-            attract consumers.
-          </S.Description>
+          <S.Description>{description}</S.Description>
 
-          <Button>Get started</Button>
+          <Button>{button}</Button>
         </S.Content.Box>
       </S.Content.Wrapper>
 

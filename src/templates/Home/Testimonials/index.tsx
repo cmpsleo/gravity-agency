@@ -3,15 +3,15 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { SliderControl } from 'components'
 
+import { TestimonialsProps } from '../types'
+
 import * as S from './styles'
 
 import { Label } from 'components'
 
-import data from './data'
-
 SwiperCore.use([Navigation, EffectFade])
 
-export default function Testimonials() {
+export default function Testimonials({ label, items }: TestimonialsProps) {
   return (
     <S.Container>
       <S.Slides>
@@ -26,17 +26,17 @@ export default function Testimonials() {
             nextEl: '#testimonials-right',
           }}
         >
-          {data.map((item, index) => (
+          {items.map((item, index) => (
             <SwiperSlide key={index}>
               <S.Item>
                 <S.Content>
-                  <Label>Testimonials</Label>
+                  <Label>{label}</Label>
 
                   <S.Title>{item.text}</S.Title>
 
                   <S.Client.Wrapper>
-                    <S.Client.Name>{item.client.name}</S.Client.Name>
-                    <S.Client.Role>{item.client.role}</S.Client.Role>
+                    <S.Client.Name>{item.name}</S.Client.Name>
+                    <S.Client.Role>{item.role}</S.Client.Role>
                   </S.Client.Wrapper>
                 </S.Content>
 

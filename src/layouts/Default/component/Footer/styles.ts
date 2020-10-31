@@ -86,7 +86,6 @@ export const Newsletter = {
   `,
 
   Field: styled.input.attrs(() => ({
-    placeholder: 'Your e-mail',
     required: true,
     type: 'email',
   }))`

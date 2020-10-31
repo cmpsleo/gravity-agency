@@ -3,32 +3,27 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { SliderControl } from 'components'
 
+import { ServicesProps } from '../types'
+
 import * as S from './styles'
 
 import data from './data'
 
 SwiperCore.use([Navigation])
 
-export default function Services() {
+export default function Services({ label, title, categories }: ServicesProps) {
   return (
     <S.Container>
       <S.Heading>
-        <S.Label>Services</S.Label>
+        <S.Label>{label}</S.Label>
 
         <S.Row>
-          <S.Title>
-            We love work hard and explore new things that’s why we cover lot of
-            things. Check our service list and view details
-          </S.Title>
+          <S.Title>{title}</S.Title>
 
           <S.Menu.List>
-            <S.Menu.Item>Multimedia</S.Menu.Item>
-            <S.Menu.Item>Creative strategy</S.Menu.Item>
-            <S.Menu.Item>Interactive design</S.Menu.Item>
-            <S.Menu.Item>UI/UX</S.Menu.Item>
-            <S.Menu.Item>Packaging</S.Menu.Item>
-            <S.Menu.Item>Coding</S.Menu.Item>
-            <S.Menu.Item>Branding</S.Menu.Item>
+            {categories.map((category, index) => (
+              <S.Menu.Item key={index}>{category}</S.Menu.Item>
+            ))}
           </S.Menu.List>
         </S.Row>
       </S.Heading>

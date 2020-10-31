@@ -1,25 +1,38 @@
-import { Button } from 'components'
+import { useState } from 'react'
 
-import { Label } from 'components'
+import { Button, Label } from 'components'
+
+import { WorksProps } from '../types'
 
 import * as S from './styles'
 
 import data from './data'
 
-export default function Works() {
+export default function Works({
+  label,
+  title,
+  categories,
+  footer,
+}: WorksProps) {
+  const [active, setActive] = useState<string>(categories[0])
+
   return (
     <S.Container>
-      <Label>Our works</Label>
+      <Label>{label}</Label>
 
       <S.Heading>
-        <S.Title>Discover our Work</S.Title>
+        <S.Title>{title}</S.Title>
 
         <S.Categories.List>
-          <S.Categories.Item active>All</S.Categories.Item>
-          <S.Categories.Item>Branding</S.Categories.Item>
-          <S.Categories.Item>Web</S.Categories.Item>
-          <S.Categories.Item>Development</S.Categories.Item>
-          <S.Categories.Item>Films</S.Categories.Item>
+          {categories.map((category, index) => (
+            <S.Categories.Item
+              key={index}
+              active={category === active}
+              onClick={() => setActive(category)}
+            >
+              {category}
+            </S.Categories.Item>
+          ))}
         </S.Categories.List>
       </S.Heading>
 
@@ -32,13 +45,9 @@ export default function Works() {
       </S.Listing>
 
       <S.Footer>
-        <S.Message>
-          It picks up the words on the page and displays ads that are similar to
-          those words. Then when someone either performs an action or clicks on
-          your page you will get paid.
-        </S.Message>
+        <S.Message>{footer.text}</S.Message>
 
-        <Button>See our works</Button>
+        <Button>{footer.button}</Button>
       </S.Footer>
     </S.Container>
   )

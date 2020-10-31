@@ -2,18 +2,20 @@ import { ReactNode } from 'react'
 
 import { Header, Footer } from './component'
 
+import { LayoutsDefaultProps } from './types'
+
 type Props = {
   children: ReactNode
-}
+} & LayoutsDefaultProps
 
-export default function Default(props: Props) {
+export default function Default({ children, footer }: Props) {
   return (
     <>
       <Header />
 
-      {props.children}
+      {children}
 
-      <Footer />
+      <Footer {...footer} />
     </>
   )
 }

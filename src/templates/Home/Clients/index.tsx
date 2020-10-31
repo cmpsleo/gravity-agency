@@ -1,23 +1,22 @@
 import { Label } from 'components'
 
+import { ClientsProps } from '../types'
+
 import * as S from './styles'
 
 import data from './data'
 
-export default function Clients() {
+export default function Clients({ title, label, description }: ClientsProps) {
   return (
     <S.Container>
       <S.Content>
         <S.Heading>
-          <S.Title>Our Clients</S.Title>
+          <S.Title>{title}</S.Title>
 
           <S.Text>
-            <Label>We worked with</Label>
+            <Label>{label}</Label>
 
-            <S.Message>
-              Our favorite brands are our friends! We help them to achieve their
-              goals, they help us to stay sharp.
-            </S.Message>
+            <S.Message>{description}</S.Message>
           </S.Text>
         </S.Heading>
 
