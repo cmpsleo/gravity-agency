@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import media from 'styled-media-query'
 import { rgba, rem } from 'polished'
+import Image from 'next/image'
 
 import { helpers } from 'styles'
 
@@ -58,7 +59,7 @@ export const Client = {
   `,
 }
 
-export const Photo = styled.img`
+export const Photo = styled(Image).attrs(() => ({ unsized: true }))`
   width: 100px;
   height: 140px;
 

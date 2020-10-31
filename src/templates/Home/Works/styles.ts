@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 import { rem, rgba } from 'polished'
+import Image from 'next/image'
 
 import { helpers } from 'styles'
 
@@ -99,7 +100,7 @@ export const Work = {
     }
   `,
 
-  Image: styled.img`
+  Image: styled(Image).attrs(() => ({ unsized: true }))`
     width: 100%;
   `,
 }

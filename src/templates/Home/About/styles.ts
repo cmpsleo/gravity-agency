@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import media from 'styled-media-query'
 import { rgba, size, rem } from 'polished'
+import Image from 'next/image'
 
 import { helpers } from 'styles'
 
@@ -20,7 +21,7 @@ export const Container = styled.section`
   `}
 `
 
-export const Picture = styled.img`
+export const Picture = styled(Image).attrs(() => ({ unsized: true }))`
   height: 460px;
 
   ${media.greaterThan('large')`
@@ -54,7 +55,7 @@ export const Author = {
     align-items: center;
   `,
 
-  Photo: styled.img`
+  Photo: styled(Image).attrs(() => ({ unsized: true }))`
     ${size('65px')}
   `,
 

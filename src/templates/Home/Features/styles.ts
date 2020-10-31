@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import media from 'styled-media-query'
 import { rem, rgba } from 'polished'
+import { ReactSVG } from 'react-svg'
+import Image from 'next/image'
 
 import { helpers } from 'styles'
 
@@ -10,7 +12,7 @@ export const Container = styled.section`
   `}
 `
 
-export const Picture = styled.img`
+export const Picture = styled(Image).attrs(() => ({ unsized: true }))`
   width: 100%;
 
   ${media.greaterThan('large')`
@@ -54,7 +56,7 @@ export const Feature = {
     }
   `,
 
-  Icon: styled.img`
+  Icon: styled(ReactSVG)`
     margin-right: 30px;
   `,
 
